@@ -42,37 +42,36 @@ body {
   min-height: inherit;
 }
 
-#song-name {
-  position: relative;
-
-  width: 100%;
-
-  color: var(--red);
-  white-space: nowrap;
-  letter-spacing: 1em;
-
+#song-name-area {
+  width: fit-content;
 }
 
-#song-name::after {
-  content: "";
-  position: absolute;
+#song-name {
 
-  left: 0px;
-  height: 100%;
-  width: 100%;
+  width: 0%;
+  color: var(--red);
+  white-space: nowrap;
+  letter-spacing: 0.5em;
+  overflow: hidden;
 
-  background-color: var(--gray);
-
-  animation: typing 2s steps(7) forwards;
+  border-right: thin solid var(--red);
+  animation:
+  blinking 0.3s step-end 6 alternate,
+  typing 1.5s 1.5s forwards ease-in-out,
+  blinking 0.3s 3s step-end infinite alternate;
 }
 
 #down-arrow-area {
   position: relative;
   flex: 0 0 30%;
 
+  top: -0.5em;
+
   opacity: 0;
 
-  animation: fade-in 4s 2.5s forwards, floating infinite 2s ease-in-out;
+  animation:
+  fade-in 4s 2.5s forwards,
+  floating infinite 2s ease-in-out alternate;
 }
 
 #down-arrow {
@@ -122,7 +121,6 @@ body {
 
 /* Animation Area */
 
-
 @keyframes fade-in {
   from {
     opacity: 0;
@@ -133,20 +131,19 @@ body {
 }
 
 @keyframes floating {
-  from {
-    top: -0.5em;
-  }
-  to {
+  50% {
     top: 0.5em;
-  }
-  to {
-    top: -0.5em;
   }
 }
 
-@keyframes typing {
+@keyframes typing { /* Width of text is 0. It The animation will take 7 steps (7 char) to go from width 0 to 100% */
     to {
-      left: 100%;
-      width: 3.5em;
+      width: 100%;
     }
+}
+
+@keyframes blinking { /* Half the time invisible, have the time not */
+  50% {
+    border-color: transparent;
+  }
 }
