@@ -16,6 +16,18 @@
   font-size: 3.5em;
 }
 
+.medium-font {
+  font-size: 2em;
+}
+
+.normal-font {
+  font-size: 1.5em;
+}
+
+.red-text {
+  color: var(--red);
+}
+
 body {
   font-family: 'Noto Serif JP', 'Sans-Serif';
   text-align: center;
@@ -47,18 +59,19 @@ body {
 }
 
 #song-name {
+  overflow: hidden;
 
   width: 0%;
-  color: var(--red);
+
   white-space: nowrap;
   letter-spacing: 0.5em;
-  overflow: hidden;
+  font-weight: lighter;
 
   border-right: thin solid var(--red);
   animation:
   blinking 0.3s step-end 6 alternate,
-  typing 1.5s 1.5s forwards ease-in-out,
-  blinking 0.3s 3s step-end infinite alternate;
+  typing 0.75s 1.5s steps(7) forwards,
+  blinking 0.3s 2.25s step-end infinite alternate;
 }
 
 #down-arrow-area {
@@ -84,8 +97,10 @@ body {
 #lyric-container {
   position: relative;
   display: inherit;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  row-gap: 5em;
 
   min-height: 100vh;
   width: 100%;
@@ -117,6 +132,23 @@ body {
   width: 100%;
   z-index: 1;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0), var(--gray) 100%);
+}
+
+#lyric-container > h2 {
+  margin-top: 5em;
+}
+
+#lyric-area {
+  display: inherit;
+  flex-direction: column;
+  justify-content: baseline;
+  align-items: center;
+  row-gap: 7em;
+
+  margin: 5em 0;
+  min-height: 50vh;
+
+  line-height: 4em;
 }
 
 /* Animation Area */
