@@ -12,21 +12,10 @@
   padding: 0;
 }
 
-.large-font {
-  font-size: 3.5em;
-}
-
-.medium-font {
-  font-size: 2em;
-}
-
-.normal-font {
-  font-size: 1.5em;
-}
-
-.red-text {
-  color: var(--red);
-}
+.large-font { font-size: 3.5em; }
+.medium-font { font-size: 2em; }
+.normal-font { font-size: 1.5em; }
+.red-text { color: var(--red); }
 
 body {
   font-family: 'Noto Serif JP', 'Sans-Serif';
@@ -54,9 +43,7 @@ body {
   min-height: inherit;
 }
 
-#song-name-area {
-  width: fit-content;
-}
+#song-name-area { width: fit-content; }
 
 #song-name {
   overflow: hidden;
@@ -104,9 +91,9 @@ body {
 
   min-height: 100vh;
   width: 100%;
+  padding: 5em 0;
 
   background: url(/img/bg.png);
-
 }
 
 #lyric-container::before {
@@ -117,7 +104,6 @@ body {
   left: -10px;
   height: 10%;
   width: 100%;
-  z-index: 1;
 
   background: linear-gradient(to top, rgba(0, 0, 0, 0), var(--gray) 100%);
 }
@@ -130,22 +116,18 @@ body {
   left: -10px;
   height: 10%;
   width: 100%;
-  z-index: 1;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0), var(--gray) 100%);
 }
 
-#lyric-container > h2 {
-  margin-top: 5em;
-}
+#lyric-container > h2 { margin-top: 15em; }
 
 #lyric-area {
   display: inherit;
   flex-direction: column;
-  justify-content: baseline;
   align-items: center;
   row-gap: 7em;
 
-  margin: 5em 0;
+  margin: 7em 0 10em 0;
   min-height: 50vh;
 
   line-height: 4em;
