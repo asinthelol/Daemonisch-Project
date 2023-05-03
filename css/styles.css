@@ -16,11 +16,19 @@
 .medium-font { font-size: 2em; }
 .normal-font { font-size: 1.5em; }
 .red-text { color: var(--red); }
+.no-scroll {
+  position: fixed;
+  inline-size: 100%;
+  overflow-y: scroll;
+}
+
+html { scroll-behavior: smooth; }
 
 body {
   font-family: 'Noto Serif JP', 'Sans-Serif';
   text-align: center;
   color: var(--white);
+
   background-color: var(--gray);
 
 }
@@ -65,20 +73,21 @@ body {
   position: relative;
   flex: 0 0 30%;
 
-  top: -0.5em;
-
-  opacity: 0;
-
-  animation:
-  fade-in 4s 2.5s forwards,
-  floating infinite 2s ease-in-out alternate;
+  top: 20em;
 }
 
 #down-arrow {
   position: relative;
-  top: 20em;
+
+  top: -0.5em;
   height: 50px;
   width: 50px;
+
+  opacity: 0;
+
+  animation:
+  fade-in 1s 2.5s both,
+  floating infinite 2s 2.5s ease-in-out alternate;
 }
 
 #lyric-container {
@@ -93,7 +102,8 @@ body {
   width: 100%;
   padding: 5em 0;
 
-  background: url(/img/bg.png);
+  background-image: url(/img/bg.png);
+  background-position: center;
 }
 
 #lyric-container::before {
@@ -102,7 +112,7 @@ body {
 
   top: -10px;
   left: -10px;
-  height: 10%;
+  height: 2%;
   width: 100%;
 
   background: linear-gradient(to top, rgba(0, 0, 0, 0), var(--gray) 100%);
@@ -114,12 +124,12 @@ body {
 
   bottom: -10px;
   left: -10px;
-  height: 10%;
+  height: 2%;
   width: 100%;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0), var(--gray) 100%);
 }
 
-#lyric-container > h2 { margin-top: 15em; }
+#lyric-container > h2 { margin-top: 2em; }
 
 #lyric-area {
   display: inherit;
@@ -127,7 +137,8 @@ body {
   align-items: center;
   row-gap: 7em;
 
-  margin: 7em 0 10em 0;
+  margin-top: 7em;
+  margin-bottom: 2em;
   min-height: 50vh;
 
   line-height: 4em;
@@ -137,9 +148,11 @@ body {
 
 @keyframes fade-in {
   from {
+    cursor: default;
     opacity: 0;
   }
   to {
+    cursor: inherit;
     opacity: 1;
   }
 }
